@@ -1,11 +1,14 @@
-var fs = require('fs');
+var { readFile, readFileSync } = require('fs');
 
+readFile('./read.md', 'utf8', (err, content) => {
+  console.log(err, content);
+});
 
-fs.readFile('./read.md',(err, content)=>{
-    console.log(err, content.toString());
-})
+var result = readFileSync('./read.md', 'utf8');
+
+console.log(result); 
 
 let buff1 = Buffer.alloc(10);
-buff1.write("Welcome to Buffer");
+buff1.write('Welcome to Buffer');
 
-console.log(buff1)
+console.log(buff1);
