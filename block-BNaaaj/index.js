@@ -1,5 +1,5 @@
 var os = require('os');
-var {readFile} = require('fs');
+var {readFile, unlink} = require('fs');
 
 console.log('Welcome to Nodejs');
 
