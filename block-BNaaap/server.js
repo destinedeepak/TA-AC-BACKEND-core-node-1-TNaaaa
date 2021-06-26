@@ -3,6 +3,7 @@ let http = require('http');
 let server = http.createServer(handleRequest);
 
 function handleRequest(req, res){
+    console.log(req.method)
     res.statusCode = 201;
     res.setHeader('content-type','text/html')
     res.end('Welcome!')
