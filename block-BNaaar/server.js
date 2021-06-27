@@ -15,7 +15,7 @@ function handleRequest(req, res) {
     res.end();
   }else if (req.method === 'POST' && pathName === '/about') {
     res.setHeader('Content-Type','application/json');
-    res.write({message: 'this is a post request'});
+    res.write(`{message: 'this is a post request'}`);
     res.end();
   }
 }
