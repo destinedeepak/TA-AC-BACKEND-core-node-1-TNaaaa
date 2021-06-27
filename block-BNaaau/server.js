@@ -91,8 +91,8 @@ function handleRequest7(req, res) {
     res.writeHead(205, { 'Content-type': 'text/html' });
     res.end('<h2>My name is Deepak</h2>');
   } else {
-      res.statusCode = 404;
-      res.end('Error 404')
+    res.statusCode = 404;
+    res.end('Error 404');
   }
 }
 
@@ -103,14 +103,14 @@ server7.listen(2345, () => {
 const server8 = http.createServer(handleRequest8);
 
 function handleRequest8(req, res) {
-  if(req.method === 'GET'){
-      res.setHeader('Content-Type','text/html');
-      fs.createReadStream('./form.html').pipe(res);
+  if (req.method === 'GET') {
+    res.setHeader('Content-Type', 'text/html');
+    fs.createReadStream('./form.html').pipe(res);
   }
-  if(req.method === 'POST'){
-    res.setHeader('Content-Type','text/plain');
+  if (req.method === 'POST') {
+    res.setHeader('Content-Type', 'text/plain');
     res.end('Posted for the second time');
-}
+  }
 }
 
 server8.listen(2346, () => {
@@ -120,11 +120,12 @@ server8.listen(2346, () => {
 const server9 = http.createServer(handleRequest9);
 
 function handleRequest9(req, res) {
- const parsedUrl = url.parse(req.url);
- console.log(req.url);
- console.log(parsedUrl.pathname);
- 
- res.end()
+  const parsedUrl = url.parse(req.url, true);
+  console.log(req.url);
+  console.log(parsedUrl.pathname);
+  console.log(parsedUrl.query);
+  res.setHeader('Content-Type', 'application/json');
+  res.end(JSON.stringify(parsedUrl.query));
 }
 
 server9.listen(2347, () => {
